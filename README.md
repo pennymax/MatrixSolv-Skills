@@ -15,15 +15,47 @@ This repository contains specialized skills designed to enhance Claude Code's ca
 
 ## Installation
 
-Copy the desired skill directory to your Claude Code skills folder:
+### Quick Install (Recommended)
+
+Use the automatic installer script that detects your environment and installs all skills:
+
+```bash
+# Clone the repository
+git clone https://github.com/pennymax/MatrixSolv-Skills.git
+cd MatrixSolv-Skills
+
+# Run the installer
+./install.sh
+```
+
+The installer will:
+- Automatically detect Claude Code and/or Codex installations
+- Install all skills to the appropriate directories
+- Verify the installation
+
+**Installer Options:**
+```bash
+./install.sh                  # Install to all detected environments
+./install.sh --claude-code-only   # Install only to Claude Code
+./install.sh --codex-only         # Install only to Codex
+./install.sh --help               # Show help
+```
+
+### Manual Installation
+
+Copy the desired skill directory to your skills folder:
 
 ```bash
 # Clone the repository
 git clone https://github.com/pennymax/MatrixSolv-Skills.git
 
-# Copy a specific skill
+# For Claude Code
 cp -r MatrixSolv-Skills/paper-reader ~/.claude/skills/
 cp -r MatrixSolv-Skills/deep-learning-training-recipe ~/.claude/skills/
+
+# For Codex
+cp -r MatrixSolv-Skills/paper-reader ~/.codex/skills/
+cp -r MatrixSolv-Skills/deep-learning-training-recipe ~/.codex/skills/
 ```
 
 ## Skill Details
