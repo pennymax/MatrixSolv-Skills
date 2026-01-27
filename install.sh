@@ -16,7 +16,7 @@ NC='\033[0m' # No Color
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 # Available skills
-SKILLS=("paper-reader" "deep-learning-training-recipe")
+SKILLS=("paper-reader" "deep-learning-training-recipe" "skill-from-masters")
 
 # Potential installation directories
 CLAUDE_CODE_DIR="$HOME/.claude/skills"
@@ -189,6 +189,11 @@ show_skills_info() {
     echo -e "${GREEN}deep-learning-training-recipe${NC}"
     echo "  Systematic methodology for training neural networks"
     echo "  Triggers: 'train model', 'debug neural network', 'model not converging'"
+    echo ""
+
+    echo -e "${GREEN}skill-from-masters${NC}"
+    echo "  Create high-quality skills based on proven expert methodologies"
+    echo "  Triggers: 'help me create a skill for X', 'I want to make a skill that does Y'"
     echo ""
 }
 

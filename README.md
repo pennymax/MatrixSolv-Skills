@@ -12,6 +12,7 @@ This repository contains specialized skills designed to enhance Claude Code's ca
 |-------|-------------|----------|
 | [paper-reader](./paper-reader/) | Structured methodology for reading and analyzing ML/Quant research papers | Analyzing academic papers from arXiv, SSRN, NeurIPS, ICML, etc. |
 | [deep-learning-training-recipe](./deep-learning-training-recipe/) | Systematic methodology for training neural networks based on Karpathy's 6-step recipe | Training ML models, debugging convergence issues, RL training |
+| [skill-from-masters](./skill-from-masters/) | Create high-quality skills by discovering and incorporating proven methodologies from domain experts | Creating new skills based on expert frameworks and best practices |
 
 ## Installation
 
@@ -52,10 +53,12 @@ git clone https://github.com/pennymax/MatrixSolv-Skills.git
 # For Claude Code
 cp -r MatrixSolv-Skills/paper-reader ~/.claude/skills/
 cp -r MatrixSolv-Skills/deep-learning-training-recipe ~/.claude/skills/
+cp -r MatrixSolv-Skills/skill-from-masters ~/.claude/skills/
 
 # For Codex
 cp -r MatrixSolv-Skills/paper-reader ~/.codex/skills/
 cp -r MatrixSolv-Skills/deep-learning-training-recipe ~/.codex/skills/
+cp -r MatrixSolv-Skills/skill-from-masters ~/.codex/skills/
 ```
 
 ## Skill Details
@@ -85,6 +88,21 @@ A systematic methodology for training neural networks, based on Andrej Karpathy'
 Extended for reinforcement learning and quantitative strategy development.
 
 **Triggers**: "train model", "debug neural network", "model not converging", "RL training"
+
+### Skill From Masters
+
+A meta-skill that helps you create high-quality skills by discovering and incorporating proven methodologies from domain experts. Features include:
+
+- **5-Layer Narrowing Framework**: Systematically narrow broad requests to specific, actionable skill definitions
+- **3-Layer Search**: Local methodology database → Web search for experts → Deep dive on primary sources
+- **Methodology Database**: Curated collection of 100+ expert frameworks across 15+ domains
+- **Skill Taxonomy**: 11 skill type categories (Summary, Insight, Generation, Decision, etc.)
+- **Golden Examples**: Finds exemplary outputs to define quality bar
+- **Anti-Patterns**: Identifies common mistakes to encode "don't do this"
+
+**Triggers**: "help me create a skill for X", "I want to make a skill that does Y"
+
+**Dependency**: Works with skill-creator for final skill generation.
 
 ## Requirements
 
