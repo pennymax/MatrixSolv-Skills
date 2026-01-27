@@ -203,6 +203,14 @@ main() {
     # Detect environment
     detect_environment
 
+    # Apply command line filters
+    if [ "$INSTALL_CLAUDE_ONLY" = true ]; then
+        CODEX_FOUND=false
+    fi
+    if [ "$INSTALL_CODEX_ONLY" = true ]; then
+        CLAUDE_CODE_FOUND=false
+    fi
+
     echo ""
 
     # Install to Claude Code if detected
@@ -239,14 +247,17 @@ main() {
 }
 
 # Parse command line arguments
+INSTALL_CLAUDE_ONLY=false
+INSTALL_CODEX_ONLY=false
+
 while [[ $# -gt 0 ]]; do
     case $1 in
         --claude-code-only)
-            CODEX_FOUND=false
+            INSTALL_CLAUDE_ONLY=true
             shift
             ;;
         --codex-only)
-            CLAUDE_CODE_FOUND=false
+            INSTALL_CODEX_ONLY=true
             shift
             ;;
         --help|-h)
