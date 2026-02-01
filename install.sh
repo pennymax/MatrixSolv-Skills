@@ -16,7 +16,7 @@ NC='\033[0m' # No Color
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 # Available skills
-SKILLS=("paper-reader" "deep-learning-training-recipe" "skill-from-masters")
+SKILLS=("paper-reader" "deep-learning-training-recipe" "skill-from-masters" "binance-data")
 
 # Potential installation directories
 CLAUDE_CODE_DIR="$HOME/.claude/skills"
@@ -194,6 +194,11 @@ show_skills_info() {
     echo -e "${GREEN}skill-from-masters${NC}"
     echo "  Create high-quality skills based on proven expert methodologies"
     echo "  Triggers: 'help me create a skill for X', 'I want to make a skill that does Y'"
+    echo ""
+
+    echo -e "${GREEN}binance-data${NC}"
+    echo "  Binance public historical data query and download assistant"
+    echo "  Triggers: 'Binance data', 'download klines', 'funding rate', 'crypto historical data'"
     echo ""
 }
 

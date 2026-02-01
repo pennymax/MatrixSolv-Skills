@@ -1,6 +1,6 @@
 # MatrixSolv-Skills
 
-A collection of Claude Code skills for machine learning research, paper analysis, and deep learning training.
+A collection of Claude Code skills for machine learning research, paper analysis, deep learning training, and cryptocurrency data analysis.
 
 ## Overview
 
@@ -13,6 +13,7 @@ This repository contains specialized skills designed to enhance Claude Code's ca
 | [paper-reader](./paper-reader/) | Structured methodology for reading and analyzing ML/Quant research papers | Analyzing academic papers from arXiv, SSRN, NeurIPS, ICML, etc. |
 | [deep-learning-training-recipe](./deep-learning-training-recipe/) | Systematic methodology for training neural networks based on Karpathy's 6-step recipe | Training ML models, debugging convergence issues, RL training |
 | [skill-from-masters](./skill-from-masters/) | Create high-quality skills by discovering and incorporating proven methodologies from domain experts | Creating new skills based on expert frameworks and best practices |
+| [binance-data](./binance-data/) | Binance public historical data query and download assistant | Downloading klines, trades, aggTrades, funding rates, metrics from Binance |
 
 ## Installation
 
@@ -54,11 +55,13 @@ git clone https://github.com/pennymax/MatrixSolv-Skills.git
 cp -r MatrixSolv-Skills/paper-reader ~/.claude/skills/
 cp -r MatrixSolv-Skills/deep-learning-training-recipe ~/.claude/skills/
 cp -r MatrixSolv-Skills/skill-from-masters ~/.claude/skills/
+cp -r MatrixSolv-Skills/binance-data ~/.claude/skills/
 
 # For Codex
 cp -r MatrixSolv-Skills/paper-reader ~/.codex/skills/
 cp -r MatrixSolv-Skills/deep-learning-training-recipe ~/.codex/skills/
 cp -r MatrixSolv-Skills/skill-from-masters ~/.codex/skills/
+cp -r MatrixSolv-Skills/binance-data ~/.codex/skills/
 ```
 
 ## Skill Details
@@ -103,6 +106,27 @@ A meta-skill that helps you create high-quality skills by discovering and incorp
 **Triggers**: "help me create a skill for X", "I want to make a skill that does Y"
 
 **Dependency**: Works with skill-creator for final skill generation.
+
+### Binance Data
+
+A comprehensive skill for querying and downloading Binance public historical market data. Features include:
+
+- **Multiple Data Types**: klines, trades, aggTrades, fundingRate, metrics
+- **Market Support**: Spot, USD-M Futures (um), COIN-M Futures (cm)
+- **Data Schema Reference**: Complete field definitions for all data types
+- **Download Script**: Batch download with date range, multiple symbols, auto-skip existing files
+- **URL Builder**: Construct correct download URLs for any data type
+
+**Supported Data:**
+| Data Type | Markets | Period |
+|-----------|---------|--------|
+| klines | spot, um, cm | daily, monthly |
+| trades | spot, um, cm | daily, monthly |
+| aggTrades | spot, um, cm | daily, monthly |
+| fundingRate | um, cm | monthly only |
+| metrics | um, cm | daily only |
+
+**Triggers**: "Binance data", "download klines", "funding rate", "crypto historical data", "币安数据"
 
 ## Requirements
 
