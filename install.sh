@@ -16,7 +16,7 @@ NC='\033[0m' # No Color
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 # Available skills
-SKILLS=("paper-reader" "deep-learning-training-recipe" "skill-from-masters" "binance-data")
+SKILLS=("paper-reader" "deep-learning-training-recipe" "skill-from-masters" "binance-data" "pdf")
 
 # Potential installation directories
 CLAUDE_CODE_DIR="$HOME/.claude/skills"
@@ -199,6 +199,12 @@ show_skills_info() {
     echo -e "${GREEN}binance-data${NC}"
     echo "  Binance public historical data query and download assistant"
     echo "  Triggers: 'Binance data', 'download klines', 'funding rate', 'crypto historical data'"
+    echo ""
+
+    echo -e "${GREEN}pdf${NC}"
+    echo "  PDF → Markdown converter using Marker with plain-text fallback"
+    echo "  Triggers: PDF file references, 'convert PDF to markdown', 'read this PDF'"
+    echo "  Requires: marker (pip install marker-pdf) or pdftotext (poppler-utils)"
     echo ""
 }
 

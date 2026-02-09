@@ -14,6 +14,7 @@ This repository contains specialized skills designed to enhance Claude Code's ca
 | [deep-learning-training-recipe](./deep-learning-training-recipe/) | Systematic methodology for training neural networks based on Karpathy's 6-step recipe | Training ML models, debugging convergence issues, RL training |
 | [skill-from-masters](./skill-from-masters/) | Create high-quality skills by discovering and incorporating proven methodologies from domain experts | Creating new skills based on expert frameworks and best practices |
 | [binance-data](./binance-data/) | Binance public historical data query and download assistant | Downloading klines, trades, aggTrades, funding rates, metrics from Binance |
+| [pdf](./pdf/) | PDF → Markdown converter using Marker with plain-text fallback | Reading PDF files efficiently in Claude Code without blowing up context window |
 
 ## Installation
 
@@ -56,12 +57,14 @@ cp -r MatrixSolv-Skills/paper-reader ~/.claude/skills/
 cp -r MatrixSolv-Skills/deep-learning-training-recipe ~/.claude/skills/
 cp -r MatrixSolv-Skills/skill-from-masters ~/.claude/skills/
 cp -r MatrixSolv-Skills/binance-data ~/.claude/skills/
+cp -r MatrixSolv-Skills/pdf ~/.claude/skills/
 
 # For Codex
 cp -r MatrixSolv-Skills/paper-reader ~/.codex/skills/
 cp -r MatrixSolv-Skills/deep-learning-training-recipe ~/.codex/skills/
 cp -r MatrixSolv-Skills/skill-from-masters ~/.codex/skills/
 cp -r MatrixSolv-Skills/binance-data ~/.codex/skills/
+cp -r MatrixSolv-Skills/pdf ~/.codex/skills/
 ```
 
 ## Skill Details
@@ -127,6 +130,28 @@ A comprehensive skill for querying and downloading Binance public historical mar
 | metrics | um, cm | daily only |
 
 **Triggers**: "Binance data", "download klines", "funding rate", "crypto historical data", "币安数据"
+
+### PDF
+
+A composable skill that converts PDF files to Markdown for efficient context-window usage. Features include:
+
+- **Marker Conversion**: Uses [Marker](https://github.com/VikParuchuri/marker) ML-based converter preserving LaTeX formulas, tables, and heading structure
+- **Automatic Fallback**: Falls back to `pdftotext` (poppler) or PyMuPDF if Marker fails
+- **Caching**: Checks for existing `.md` file before converting — skip conversion on repeat reads
+- **Composable**: Designed as a preprocessing step for other skills (e.g., `paper-reader`)
+- **Page Selection**: Convert specific pages only for large PDFs (`--pages 0,5-10`)
+
+**Options:**
+| Flag | Effect |
+|------|--------|
+| `--no-images` | Skip image extraction (default for context efficiency) |
+| `--pages 0,5-10` | Convert only specified pages |
+| `--force` | Overwrite existing .md |
+| `-o path` | Custom output path |
+
+**Requirements**: `pip install marker-pdf` (recommended) or `poppler-utils` (fallback)
+
+**Triggers**: PDF file references, "convert PDF to markdown", "read this PDF"
 
 ## Requirements
 
